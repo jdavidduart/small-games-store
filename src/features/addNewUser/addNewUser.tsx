@@ -12,7 +12,7 @@ export default function AddNewUser() {
       <Modal
         open={open}
         onClose={handleClose}
-        className="bg-gray-500 p-6 rounded-lg w-80 h-fit mx-auto my-20"
+        className="bg-gray-800 p-6 rounded-lg w-80 h-fit mx-auto my-20"
       >
         <Box>
           <AddUserForm onAddUser={onAddUser} />
