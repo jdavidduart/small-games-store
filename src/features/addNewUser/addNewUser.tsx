@@ -1,5 +1,4 @@
 import Modal from "@mui/material/Modal";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import AddUserForm from "./components/addUserForm";
 import { useAddNewUser } from "./hooks";
