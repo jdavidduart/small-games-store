@@ -9,11 +9,17 @@ export const useAddNewUser = () => {
   const dispatch = useDispatch();
 
   const onAddUser = (user: User) => {
+    const date = new Date(user.registerDate);
+    const options: Intl.DateTimeFormatOptions = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
     dispatch({
       type: "users/addUser",
       payload: {
         name: user.name,
-        registerDate: `${user.registerDate}`,
+        registerDate: date.toLocaleDateString("es", options),
       },
     });
   };
