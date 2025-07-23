@@ -11,10 +11,10 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import exampleReducer from "../app/cart/services/exampleSlice";
 
+import usersReducer from "../features/addNewUser/services/usersSlice";
 const rootReducer = combineReducers({
-  example: exampleReducer,
+  data: usersReducer,
   // ...add other reducers here...
 });
 

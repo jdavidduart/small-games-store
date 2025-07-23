@@ -1,5 +1,7 @@
 "use client";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import StoreProvider from "../store/storeProvider";
 
 const darkTheme = createTheme({
@@ -14,8 +16,10 @@ export default function AppProviders({
   children: React.ReactNode;
 }) {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <StoreProvider>{children}</StoreProvider>
-    </ThemeProvider>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <ThemeProvider theme={darkTheme}>
+        <StoreProvider>{children}</StoreProvider>
+      </ThemeProvider>
+    </LocalizationProvider>
   );
 }
