@@ -10,18 +10,16 @@ export const useAddNewUser = () => {
 
   const onAddUser = (user: User) => {
     const date = new Date(user.registerDate);
-    const options: Intl.DateTimeFormatOptions = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
+
     dispatch({
       type: "users/addUser",
       payload: {
         name: user.name,
-        registerDate: date.toLocaleDateString("es", options),
+        registerDate: date.toISOString(),
+        status: "activo",
       },
     });
+    setOpen(false);
   };
   return {
     open,
