@@ -4,6 +4,9 @@ import {
   Input,
   Box,
   FormHelperText,
+  Select,
+  InputLabel,
+  MenuItem,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import { Button } from "@mui/material";
@@ -27,7 +30,7 @@ export default function AddUserForm({ onAddUser }: AddUserFormProps) {
         <Box mb={2} width="100%">
           <FormLabel
             htmlFor="nombre"
-            sx={{ display: "block", mb: 1 }}
+            sx={{ display: "block" }}
             error={!!errors.name}
           >
             Nombre
@@ -41,6 +44,19 @@ export default function AddUserForm({ onAddUser }: AddUserFormProps) {
           />
           {errors.name && <FormHelperText>Campo requerido</FormHelperText>}
         </Box>
+      </FormControl>
+      <FormControl fullWidth sx={{ my: 2 }} error={!!errors.range}>
+        <InputLabel id="range">Numero de días</InputLabel>
+        <Select
+          labelId="range"
+          label="Numero de días"
+          {...register("daysBought", { required: true })}
+        >
+          <MenuItem value={30}>30 días</MenuItem>
+          <MenuItem value={15}>15 días</MenuItem>
+          <MenuItem value={7}>7 días</MenuItem>
+        </Select>
+        {errors.range && <FormHelperText>Campo requerido</FormHelperText>}
       </FormControl>
       <FormControl fullWidth error={!!errors.registerDate}>
         <Box width="100%">

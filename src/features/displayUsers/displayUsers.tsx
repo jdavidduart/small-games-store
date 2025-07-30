@@ -29,7 +29,7 @@ export default function DisplayUsers({ users }: DisplayUsersProps) {
           {users.map((user, index) => {
             const registerDate = new Date(user.registerDate);
             const futureDate = new Date(registerDate);
-            futureDate.setDate(futureDate.getDate() + 30);
+            futureDate.setDate(futureDate.getDate() + user.daysBought);
             const today = new Date();
             const diffMs = futureDate.getTime() - today.getTime();
             const leftDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
