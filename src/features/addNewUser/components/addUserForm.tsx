@@ -50,6 +50,7 @@ export default function AddUserForm({ onAddUser }: AddUserFormProps) {
         <Select
           labelId="range"
           label="Numero de días"
+          defaultValue={30}
           {...register("daysBought", { required: true })}
         >
           <MenuItem value={30}>30 días</MenuItem>

@@ -4,3 +4,8 @@ export interface User {
   daysBought: number;
   [key: string]: unknown;
 }
+
+export interface UserLogin {
+  email: string;
+  password: string;
+}

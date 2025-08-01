@@ -12,6 +12,12 @@ const usersSlice = createSlice({
     addUser: (state, action: PayloadAction<User>) => {
       state.users.push(action.payload);
     },
+    sortByStatus: (state) => {
+      const order = {};
+      /*       const newOrder = [...state.users].sort((a,b)=>{
+        if()
+      }) */
+    },
   },
 });
 

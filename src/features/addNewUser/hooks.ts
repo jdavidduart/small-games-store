@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 export const useAddNewUser = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -23,6 +23,8 @@ export const useAddNewUser = () => {
     });
     setOpen(false);
   };
+
+  const onSortByStatus = () => {};
   return {
     open,
     handleOpen,
