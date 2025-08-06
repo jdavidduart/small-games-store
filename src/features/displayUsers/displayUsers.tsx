@@ -20,7 +20,7 @@ export default function DisplayUsers({ users }: DisplayUsersProps) {
         <TableHead>
           <TableRow className="bg-sky-800">
             <TableCell>Nombre</TableCell>
-            <TableCell>Fecha de ingreso</TableCell>
+            <TableCell>Ultimo pago</TableCell>
             <TableCell>Dias restantes</TableCell>
             <TableCell>Estado</TableCell>
           </TableRow>

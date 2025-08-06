@@ -1,33 +1,33 @@
 import { UserLogin } from "@/types/user";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { supabase } from "../../../lib/supabaseClient";
 
 export const useLogin = () => {
   const router = useRouter();
   const [errorOfLogin, setErrorOfLogin] = useState<string | null>(null);
-  const listOfAdmins = [
-    {
-      email: "jose@gmail.com",
-      password: "123456",
-    },
-    {
-      email: "jhon@hotmail.com",
-      password: "alreves",
-    },
-  ];
-  const onLogin = (data: UserLogin) => {
-    const result = listOfAdmins.find((user) => user.email === data.email);
-    console.log(result);
-    if (result) {
-      if (data.password === result.password) {
-        router.push("/");
-      } else {
-        setErrorOfLogin("La clave es invalida");
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        router.replace("/"); // si no hay sesión, manda a login
       }
-    } else {
-      setErrorOfLogin("El Usuario no existe");
+    });
+  }, []);
+
+  const onLogin = async (data: UserLogin) => {
+    const { error } = await supabase.auth.signInWithPassword({
+      email: data.email,
+      password: data.password,
+    });
+    if (error) {
+      setErrorOfLogin("Credenciales invalidos");
+      return;
     }
+
+    router.push("/");
   };
+
   return {
     onLogin,
     errorOfLogin,

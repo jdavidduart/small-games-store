@@ -19,15 +19,17 @@ export default function AddNewUser() {
         </Box>
       </Modal>
       {/* Example image usage */}
-      <Image
-        src="/logo.png" // public/images/user-avatar.png
-        alt="User Avatar"
-        width={80}
-        height={80}
-      />
-      <Button onClick={handleOpen} variant="outlined">
-        Agregar usuario
-      </Button>
+      <div className="flex align-middle justify-between p-2">
+        <Image
+          src="/logo.png" // public/images/user-avatar.png
+          alt="User Avatar"
+          width={80}
+          height={80}
+        />
+        <Button onClick={handleOpen} variant="outlined" size="small">
+          Agregar usuario
+        </Button>
+      </div>
     </div>
   );
 }
